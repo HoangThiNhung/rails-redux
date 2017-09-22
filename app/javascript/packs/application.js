@@ -7,4 +7,20 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-console.log('Hello World from Webpacker')
+// console.log('Hello World from Webpacker')
+
+import React from 'react'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux';
+import { createStore } from 'redux'
+import helloReducer from './reducers/hello_reducer';
+import Hello from './components/Hello'
+
+let store = createStore(helloReducer);
+
+render(
+  <Provider store={store}>
+    <Hello />
+  </Provider>,
+  document.getElementById('root')
+)
